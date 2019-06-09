@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Linq;
 using System.Threading.Tasks;
 using NewsApp.Models;
 using NewsApp.Network;
@@ -29,9 +30,9 @@ namespace NewsApp.ViewModels
         {
             NetworkManager manager = NetworkManager.Instance;
 
-            List<FeedItemModel> result = await manager.GetSyncFeedAsync();
-            //List<FeedItemModel> list = await manager.GetSyncFeedAsync();
+            List<FeedItemModel> result = await manager.GetSyncFeedAsync(); 
             Items = new List<FeedItemModel>(result);
+
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

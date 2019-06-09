@@ -27,6 +27,7 @@
                 <StackLayout
                     Padding="10">
                     <Label
+                        VerticalOptions="Center"
                         Text="Top News" />
                     <BoxView
                         BackgroundColor="Gray"
