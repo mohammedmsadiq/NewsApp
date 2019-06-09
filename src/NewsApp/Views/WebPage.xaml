@@ -2,9 +2,40 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:NewsApp.Controls"
+    xmlns:behaviors="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+    xmlns:i18n="clr-namespace:NewsApp.i18n;assembly=NewsApp"
+    xmlns:local="clr-namespace:NewsApp.Views"
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:windows="clr-namespace:Xamarin.Forms.PlatformConfiguration.WindowsSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+    prism:ViewModelLocator.AutowireViewModel="True"
+    ios:Page.UseSafeArea="true"
+    Title="{Binding Title}"
     x:Class="NewsApp.Views.WebPage">
     <ContentPage.Content>
-     <WebView Source="{Binding WebviewSource}">
-        </WebView>
+        <StackLayout>
+            <StackLayout
+                IsVisible="{Binding IsVisible}"
+                BackgroundColor="Transparent"
+                HeightRequest="50"
+                HorizontalOptions="FillAndExpand">
+                <Button
+                    Margin="10,0,0,0"
+                    VerticalOptions="CenterAndExpand"
+                    HorizontalOptions="StartAndExpand"
+                    HeightRequest="40"
+                    WidthRequest="40"
+                    Command="{Binding BackCommand}"
+                    Text="Back" />
+            </StackLayout>
+            <WebView
+                VerticalOptions="FillAndExpand"
+                HorizontalOptions="FillAndExpand"
+                Source="{Binding Url}">
+            </WebView>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

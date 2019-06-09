@@ -16,11 +16,12 @@ namespace NewsApp.ViewModels
     public class NewsPageViewModel : ViewModelBase
     {
         private INavigation Navigation;
-
+        INavigationService navigationService;
         List<FeedItemModel> items;
 
         public NewsPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService, IDeviceService deviceService) : base(navigationService, pageDialogService, deviceService)
         {
+            this.navigationService = navigationService;
             this.GetNewsFeedAsync();
         }
 
@@ -62,10 +63,10 @@ namespace NewsApp.ViewModels
 
         private void OpenWebPage()
         {
-            WebPage page = new WebPage(selectedItem.Guid);
-            Navigation.PushAsync(page);
+            var navigationParams = new Prism.Navigation.NavigationParameters();
+            navigationParams.Add("url", selectedItem.Guid);
+            navigationService.NavigateAsync("WebPage", navigationParams, animated: false);
         }
-
     }
 }
 

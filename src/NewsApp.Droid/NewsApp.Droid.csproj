@@ -110,6 +110,7 @@
     <AndroidResource Include="Resources\drawable\ic_hub.png" />
     <AndroidResource Include="Resources\drawable\gradient.jpg" />
     <AndroidResource Include="Resources\drawable\userimage.png" />
+    <AndroidResource Include="Resources\drawable\ic_back.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml" />
