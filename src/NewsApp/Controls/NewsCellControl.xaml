@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    BackgroundColor="Transparent"
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    x:Class="NewsApp.Controls.NewsCellControl">
+    <ContentView.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition
+                    Height="*" />
+                <RowDefinition
+                    Height="auto" />
+            </Grid.RowDefinitions>
+            <ffimageloading:CachedImage
+                HeightRequest="250"
+                Aspect="AspectFill"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand"
+                Source="{Binding Thumbnail}"
+                Grid.Row="0" />
+            <StackLayout
+                Margin="5,0,0,10"
+                VerticalOptions="FillAndExpand"
+                HorizontalOptions="FillAndExpand"
+                Grid.Row="1">
+                <Label
+                    Margin="5,0,0,0"
+                    MaxLines="1"
+                    FontSize="Small"
+                    FontAttributes="Bold"
+                    VerticalOptions="Start"
+                    HorizontalOptions="StartAndExpand"
+                    VerticalTextAlignment="Center"
+                    HorizontalTextAlignment="Start"
+                    Text="{Binding Title}" />
+                <Label
+                    Margin="5,5,10,0"
+                    MaxLines="7"
+                    FontSize="10"
+                    LineBreakMode="WordWrap"
+                    VerticalOptions="Start"
+                    HorizontalOptions="StartAndExpand"
+                    VerticalTextAlignment="Center"
+                    HorizontalTextAlignment="Start"
+                    Text="{Binding Description}" />
+            </StackLayout>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

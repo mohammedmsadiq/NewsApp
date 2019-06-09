@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:NewsApp.Controls"
+    xmlns:behaviors="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+    xmlns:i18n="clr-namespace:NewsApp.i18n;assembly=NewsApp"
+    xmlns:local="clr-namespace:NewsApp.Views"
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:windows="clr-namespace:Xamarin.Forms.PlatformConfiguration.WindowsSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+    prism:ViewModelLocator.AutowireViewModel="True"
+    Title="{Binding Title}"
+    x:Class="NewsApp.Views.NewsPage">
+    <ContentPage.Content>
+        <ListView
+            ItemsSource="{Binding Items}"
+            VerticalOptions="FillAndExpand"
+            HorizontalOptions="StartAndExpand"
+            BackgroundColor="Transparent"
+            SelectedItem="{Binding SelectedItem}"
+            SeparatorColor="Transparent"
+            HasUnevenRows="true">
+            <ListView.Header>
+                <StackLayout
+                    Padding="10">
+                    <Label
+                        Text="Top News" />
+                    <BoxView
+                        BackgroundColor="Gray"
+                        VerticalOptions="FillAndExpand"
+                        HeightRequest="0.5" />
+                </StackLayout>
+            </ListView.Header>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <controls:NewsCellControl />
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>
